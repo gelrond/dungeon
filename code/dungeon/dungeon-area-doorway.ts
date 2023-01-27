@@ -1,5 +1,5 @@
 // ********************************************************************************************************************
-import { Mesh, MeshBasicMaterial, PlaneGeometry, Scene } from 'three';
+import { BoxGeometry, Mesh, MeshStandardMaterial, Scene } from 'three';
 // ********************************************************************************************************************
 import { DungeonArea } from './dungeon-area';
 // ********************************************************************************************************************
@@ -17,15 +17,15 @@ export class DungeonAreaDoorway extends DungeonArea {
     // ****************************************************************************************************************
     // returns:     n/a
     // ****************************************************************************************************************
-    public instantiate(scene: Scene): void {
+    public override instantiate(scene: Scene): void {
 
-        const geometry = new PlaneGeometry(this.size.x, this.size.y);
+        const geometry = new BoxGeometry(this.size.x, this.size.y);
 
-        const material = new MeshBasicMaterial({ color: '#f0f0f0' });
+        const material = new MeshStandardMaterial({ color: '#f0a0a0', roughness: 1.0 });
 
         const mesh = new Mesh(geometry, material);
 
-        mesh.position.set(this.center.x, this.center.y, 0);
+        mesh.position.set(this.center.x, 0, this.center.y);
 
         scene.add(mesh);
     }

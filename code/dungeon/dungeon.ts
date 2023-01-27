@@ -1,9 +1,9 @@
 // ********************************************************************************************************************
 import { MathUtils, Scene } from 'three';
 // ********************************************************************************************************************
-import { DungeonArea } from './dungeon-area';
-// ********************************************************************************************************************
 import { DungeonAreaDoorway } from './dungeon-area-doorway';
+// ********************************************************************************************************************
+import { DungeonAreaEntrance } from './dungeon-area-entrance';
 // ********************************************************************************************************************
 import { DungeonAreaRoom } from './dungeon-area-room';
 // ********************************************************************************************************************
@@ -30,11 +30,15 @@ export class Dungeon {
     // ****************************************************************************************************************
     public generate(areas: number = 32): void {
 
-        this.layout.add(new DungeonArea(-0.5, -0.5, 0.5, 0.5));
+        var entrance = new DungeonAreaEntrance(-0.5, -0.5, 0.5, 0.5);
+
+        this.layout.add(entrance);
 
         while (this.layout.areas.length < areas) {
 
             const area = this.layout.random();
+
+            if (area === entrance && this.layout.areas.length > 1) continue;
 
             const dx = MathUtils.randInt(2, 6), hx = dx / 2;
 
