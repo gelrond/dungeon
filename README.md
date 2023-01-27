@@ -2,8 +2,6 @@
 
 <h2>Dungeon</h2>
 
-<p>To Do</p>
-
 <h3>Installation</h3>
 
 <ol>

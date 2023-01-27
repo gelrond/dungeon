@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ca64a5a4-fb0b-4170-8f00-9a56eb6bec9e": {
+      "ProjectGuid": "ca64a5a4-fb0b-4170-8f00-9a56eb6bec9e",
+      "DisplayName": "dungeon",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
