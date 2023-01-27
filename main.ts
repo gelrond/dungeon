@@ -17,7 +17,7 @@ const renderer = new WebGLRenderer({ antialias: true });
 // camera
 // ********************************************************************************************************************
 const camera = new PerspectiveCamera(50, 1, 0.1, 128);
-camera.position.z = 64;
+camera.position.z = 128;
 new OrbitControls(camera, renderer.domElement);
 
 // ********************************************************************************************************************

@@ -3,6 +3,10 @@ import { MathUtils, Scene } from 'three';
 // ********************************************************************************************************************
 import { DungeonArea } from './dungeon-area';
 // ********************************************************************************************************************
+import { DungeonAreaDoorway } from './dungeon-area-doorway';
+// ********************************************************************************************************************
+import { DungeonAreaRoom } from './dungeon-area-room';
+// ********************************************************************************************************************
 import { DungeonLayout } from './dungeon-layout';
 // ********************************************************************************************************************
 export class Dungeon {
@@ -40,11 +44,11 @@ export class Dungeon {
 
                 case 1: {
 
-                    const door = new DungeonArea(area.top - 1, area.center.x - 0.5, area.top, area.center.x + 0.5);
+                    const door = new DungeonAreaDoorway(area.top - 1, area.center.x - 0.5, area.top, area.center.x + 0.5);
 
                     if (this.layout.available(door.inflate(1, 1, 0, 1))) {
 
-                        const room = new DungeonArea(door.top - dy, door.center.x - hx, door.top, door.center.x + hx);
+                        const room = new DungeonAreaRoom(door.top - dy, door.center.x - hx, door.top, door.center.x + hx);
 
                         if (this.layout.available(room.inflate(1, 1, 0, 1))) {
 
@@ -57,11 +61,11 @@ export class Dungeon {
                 }
                 case 2: {
 
-                    const door = new DungeonArea(area.center.y - 0.5, area.left - 1, area.center.y + 0.5, area.left);
+                    const door = new DungeonAreaDoorway(area.center.y - 0.5, area.left - 1, area.center.y + 0.5, area.left);
 
                     if (this.layout.available(door.inflate(1, 1, 1, 0))) {
 
-                        const room = new DungeonArea(door.center.y - hy, door.left - dx, door.center.y + hy, door.left);
+                        const room = new DungeonAreaRoom(door.center.y - hy, door.left - dx, door.center.y + hy, door.left);
 
                         if (this.layout.available(room.inflate(1, 1, 1, 0))) {
 
@@ -74,11 +78,11 @@ export class Dungeon {
                 }
                 case 3: {
 
-                    const door = new DungeonArea(area.bottom, area.center.x - 0.5, area.bottom + 1, area.center.x + 0.5);
+                    const door = new DungeonAreaDoorway(area.bottom, area.center.x - 0.5, area.bottom + 1, area.center.x + 0.5);
 
                     if (this.layout.available(door.inflate(0, 1, 1, 1))) {
 
-                        const room = new DungeonArea(door.bottom, door.center.x - hx, door.bottom + dy, door.center.x + hx);
+                        const room = new DungeonAreaRoom(door.bottom, door.center.x - hx, door.bottom + dy, door.center.x + hx);
 
                         if (this.layout.available(room.inflate(0, 1, 1, 1))) {
 
@@ -91,11 +95,11 @@ export class Dungeon {
                 }
                 case 4: {
 
-                    const door = new DungeonArea(area.center.y - 0.5, area.right, area.center.y + 0.5, area.right + 1);
+                    const door = new DungeonAreaDoorway(area.center.y - 0.5, area.right, area.center.y + 0.5, area.right + 1);
 
                     if (this.layout.available(door.inflate(1, 0, 1, 1))) {
 
-                        const room = new DungeonArea(door.center.y - hy, door.right, door.center.y + hy, door.right + dx);
+                        const room = new DungeonAreaRoom(door.center.y - hy, door.right, door.center.y + hy, door.right + dx);
 
                         if (this.layout.available(room.inflate(1, 0, 1, 1))) {
 
